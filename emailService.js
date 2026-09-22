@@ -72,7 +72,7 @@ We appreciate your interest in **${company}** and look forward to speaking with 
 warm regards, 
 HR , 
 ${company}
-companyname@gmail.com
+${company}@gmail.com
 +9999999999`;
 
   return { subject, body };
@@ -82,58 +82,39 @@ companyname@gmail.com
  * Initializes and returns an authorized Google OAuth2 client
  * using credentials.json and token.json in the project root.
  */
+// 
+// ********************************************************************
+/**
+ * Initializes and returns an authorized Google OAuth2 client
+ * using Environment Variables instead of local files.
+ */
 function getOAuth2Client() {
-  const credentialsPath = path.join(__dirname, "credentials.json");
-  const tokenPath = path.join(__dirname, "token.json");
+  const clientId = process.env.GMAIL_CLIENT_ID;
+  const clientSecret = process.env.GMAIL_CLIENT_SECRET;
+  const refreshToken = process.env.GMAIL_REFRESH_TOKEN;
 
-  if (!fs.existsSync(credentialsPath)) {
-    throw new Error("Missing credentials.json for Gmail API in root directory.");
-  }
-  if (!fs.existsSync(tokenPath)) {
-    throw new Error("Missing token.json for Gmail API in root directory.");
-  }
-
-  const credentials = JSON.parse(fs.readFileSync(credentialsPath, "utf-8"));
-  const token = JSON.parse(fs.readFileSync(tokenPath, "utf-8"));
-
-  const creds = credentials.installed || credentials.web;
-  if (!creds) {
-    throw new Error("Invalid credentials.json format: missing installed/web client configuration.");
+  if (!clientId || !clientSecret || !refreshToken) {
+    throw new Error("Missing Gmail OAuth environment variables (GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_REFRESH_TOKEN).");
   }
 
   const google = getGoogleApis();
+
+  // Initialize the OAuth2 client
   const oauth2Client = new google.auth.OAuth2(
-    creds.client_id,
-    creds.client_secret,
-    creds.redirect_uris ? creds.redirect_uris[0] : "http://localhost"
+    clientId,
+    clientSecret,
+    "https://developers.google.com/oauthplayground" // Standard fallback redirect URI
   );
 
+  // By setting the refresh_token, the Google API client will 
+  // automatically generate a new access_token behind the scenes whenever it expires.
   oauth2Client.setCredentials({
-    access_token: token.token || token.access_token,
-    refresh_token: token.refresh_token,
-    scope: token.scopes ? token.scopes.join(" ") : token.scope,
-    token_type: token.token_type || "Bearer",
-    expiry_date: token.expiry ? new Date(token.expiry).getTime() : token.expiry_date,
-  });
-
-  // Listen for automatic token refreshes and persist back to token.json
-  oauth2Client.on("tokens", (tokens) => {
-    try {
-      const currentToken = JSON.parse(fs.readFileSync(tokenPath, "utf-8"));
-      const updated = {
-        ...currentToken,
-        ...tokens,
-        token: tokens.access_token || currentToken.token,
-      };
-      fs.writeFileSync(tokenPath, JSON.stringify(updated, null, 2));
-      console.log("[EmailService] Saved refreshed OAuth tokens to token.json");
-    } catch (saveErr) {
-      console.error("[EmailService] Could not persist refreshed token:", saveErr.message);
-    }
+    refresh_token: refreshToken
   });
 
   return oauth2Client;
 }
+// ***********************************************************************
 
 /**
  * Converts markdown-formatted email text to clean HTML
