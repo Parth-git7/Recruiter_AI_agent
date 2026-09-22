@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🏢 HiringBazzar — AI-Powered Candidate Matchmaker
+# HiringBazzar — AI-Powered Candidate Matchmaker
 
-### _Intelligent Recruitment Powered by Microsoft AI Foundry & Gmail API_
+### Intelligent Recruitment Powered by Microsoft AI Foundry & Gmail API
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-hiringbazzar.azurewebsites.net-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)](https://hiringbazzar.azurewebsites.net)
 [![Node.js](https://img.shields.io/badge/Node.js-20_LTS-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -12,38 +12,38 @@
 
 ---
 
-**HiringBazzar** is an enterprise-grade AI recruitment assistant that matches job descriptions against a candidate resume knowledge base using **Microsoft AI Foundry Agents**, then enables recruiters to send personalized interview outreach emails directly via the **Gmail API** — all from a single, clean web interface.
+**HiringBazzar** is an AI-powered recruitment assistant that matches job descriptions against a candidate resume knowledge base using **Microsoft AI Foundry Agents**, then enables recruiters to send personalized interview outreach emails directly via the **Gmail API** — all from a single, clean web interface.
 
-🔗 **Live Application:** [https://hiringbazzar.azurewebsites.net](https://hiringbazzar.azurewebsites.net)
+**Live Application:** [https://hiringbazzar.azurewebsites.net](https://hiringbazzar.azurewebsites.net)
 
 </div>
 
 ---
 
-# # ✨ Key Features
+# Key Features
 
 | Feature | Description |
 |---|---|
-| 🤖 **AI-Powered Matching** | Leverages a Microsoft AI Foundry Agent grounded in a `candidate-resumes` knowledge base to intelligently rank candidates against any job description |
-| 📊 **Match Scoring** | Each candidate receives a 0–100 match score with a detailed 5-line profile summary |
-| 📧 **One-Click Email Outreach** | Auto-generates professional interview invitation emails and sends them via Gmail API with OAuth2 |
-| 🎨 **Enterprise UI** | Clean, responsive single-page interface built with vanilla HTML/CSS/JS — zero build tools, instant load |
-| ☁️ **Azure Hosted** | Production-deployed on Azure App Service (UAE North) with environment-based configuration |
-| ⌨️ **Keyboard Shortcuts** | `Ctrl + Enter` to instantly submit a job description |
+| **AI-Powered Matching** | Leverages a Microsoft AI Foundry Agent grounded in a `candidate-resumes` knowledge base to intelligently rank candidates against any job description |
+| **Match Scoring** | Each candidate receives a 0–100 match score with a detailed 5-line profile summary |
+| **One-Click Email Outreach** | Auto-generates professional interview invitation emails and sends them via Gmail API with OAuth2 |
+| **Enterprise UI** | Clean, responsive single-page interface built with vanilla HTML/CSS/JS — zero build tools, instant load |
+| **Azure Hosted** | Production-deployed on Azure App Service (UAE North) with environment-based configuration |
+| **Keyboard Shortcuts** | `Ctrl + Enter` to instantly submit a job description |
 
 ---
 
-# # 🏗️ System Architecture
+# System Architecture
 
 ```mermaid
 graph TB
-    subgraph CLIENT["🖥️ Browser Client"]
+    subgraph CLIENT["Browser Client"]
         UI["index.html + styles.css"]
         JS["app.js"]
     end
 
-    subgraph AZURE_APP["☁️ Azure App Service — UAE North"]
-        subgraph SERVER["⚙️ Node.js Express Server"]
+    subgraph AZURE_APP["Azure App Service — UAE North"]
+        subgraph SERVER["Node.js Express Server"]
             API_HEALTH["/api/health"]
             API_MATCH["/api/match-candidates"]
             API_EMAIL_TEMPLATE["/api/email-template"]
@@ -52,12 +52,12 @@ graph TB
         end
     end
 
-    subgraph FOUNDRY["🧠 Microsoft AI Foundry"]
+    subgraph FOUNDRY["Microsoft AI Foundry"]
         AGENT["candidate-matchmaker Agent"]
         KB["candidate-resumes Knowledge Base"]
     end
 
-    subgraph GMAIL["📧 Google Gmail API"]
+    subgraph GMAIL["Google Gmail API"]
         GMAIL_SEND["gmail.users.messages.send"]
     end
 
@@ -77,19 +77,19 @@ graph TB
 
 ---
 
-# # 🔄 Application Workflow
+# Application Workflow
 
-## # End-to-End Recruitment Flow
+## End-to-End Recruitment Flow
 
 ```mermaid
 flowchart LR
-    A["📝 Recruiter pastes<br/>Job Description"] --> B["🔍 Express API receives<br/>POST request"]
-    B --> C["🤖 AI Foundry Agent<br/>analyzes JD against<br/>resume knowledge base"]
-    C --> D["📊 Agent returns ranked<br/>candidates with scores<br/>& email addresses"]
-    D --> E["🎴 UI renders<br/>candidate cards<br/>with match scores"]
-    E --> F["📧 Recruiter clicks<br/>Send Outreach"]
-    F --> G["✉️ Auto-generated<br/>interview email<br/>via Gmail API"]
-    G --> H["✅ Candidate receives<br/>professional interview<br/>invitation"]
+    A["Recruiter enters<br/>Job Description"] --> B["Express API receives<br/>POST request"]
+    B --> C["AI Foundry Agent<br/>analyzes JD against<br/>resume knowledge base"]
+    C --> D["Agent returns ranked<br/>candidates with scores<br/>& email addresses"]
+    D --> E["UI renders<br/>candidate cards<br/>with match scores"]
+    E --> F["Recruiter clicks<br/>Send Outreach"]
+    F --> G["Auto-generated<br/>interview email<br/>via Gmail API"]
+    G --> H["Candidate receives<br/>professional interview<br/>invitation"]
 
     style A fill:#DBEAFE,stroke:#2563EB,stroke-width:2px
     style C fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px
@@ -98,96 +98,49 @@ flowchart LR
     style H fill:#D1FAE5,stroke:#10B981,stroke-width:2px
 ```
 
-## # Candidate Matching — Internal Flow
-
-```mermaid
-flowchart TD
-    INPUT["Job Description Text"] --> VALIDATE{"Validate Input"}
-    VALIDATE -->|"Empty"| ERROR["400: JD Required"]
-    VALIDATE -->|"Valid"| CHECK{"Foundry<br/>Endpoint<br/>Configured?"}
-    CHECK -->|"No"| DEMO["Return Demo<br/>Candidates"]
-    CHECK -->|"Yes"| PROMPT["Build Structured<br/>Prompt with JD"]
-    PROMPT --> CALL["Call AI Foundry<br/>Agent REST API"]
-    CALL --> RESPONSE["Receive Agent<br/>Response Text"]
-    RESPONSE --> PARSE{"Parse Response"}
-    PARSE -->|"JSON Block"| EXTRACT["Extract from<br/>JSON array"]
-    PARSE -->|"Raw JSON"| EXTRACT
-    PARSE -->|"Numbered List"| REGEX["Regex extraction<br/>of name/email/score"]
-    EXTRACT --> NORMALIZE["Normalize &<br/>Format Candidates"]
-    REGEX --> NORMALIZE
-    NORMALIZE --> SUMMARY["Generate 5-line<br/>Interview Summary"]
-    SUMMARY --> RETURN["Return Candidate<br/>Array to Client"]
-
-    style INPUT fill:#DBEAFE,stroke:#2563EB,stroke-width:2px
-    style CALL fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px
-    style RETURN fill:#D1FAE5,stroke:#10B981,stroke-width:2px
-    style ERROR fill:#FEE2E2,stroke:#EF4444,stroke-width:2px
-```
-
-## # Email Outreach — Internal Flow
-
-```mermaid
-flowchart TD
-    CLICK["Recruiter clicks<br/>Send Outreach"] --> FETCH["GET /api/email-template<br/>with candidate name & role"]
-    FETCH --> DRAFT["Generate email draft<br/>with interview details:<br/>Date, Time, Meet Link"]
-    DRAFT --> MODAL["Display editable<br/>email in modal"]
-    MODAL --> EDIT["Recruiter reviews<br/>& edits email"]
-    EDIT --> SEND["POST /api/send-email<br/>with to, subject, body"]
-    SEND --> OAUTH["Authenticate via<br/>Gmail OAuth2"]
-    OAUTH --> FORMAT["Convert markdown<br/>body to HTML"]
-    FORMAT --> MIME["Build multipart MIME<br/>message (plain + HTML)"]
-    MIME --> BASE64["Base64url encode<br/>for Gmail API"]
-    BASE64 --> GMAIL_API["gmail.users.messages.send"]
-    GMAIL_API --> SUCCESS["✅ Email Sent<br/>Toast notification"]
-
-    style CLICK fill:#DBEAFE,stroke:#2563EB,stroke-width:2px
-    style OAUTH fill:#FEF3C7,stroke:#F59E0B,stroke-width:2px
-    style SUCCESS fill:#D1FAE5,stroke:#10B981,stroke-width:2px
-```
-
 ---
 
-# # 📁 Project Structure
+# Project Structure
 
 ```
 HiringBazzar/
-├── 📄 .env                    # Environment variables (git-ignored)
-├── 📄 .gitignore              # Git ignore rules
-├── 📄 package.json            # Node.js dependencies & scripts
-├── 📄 server.js               # Express server — API routes & static hosting
-├── 📄 foundryService.js       # AI Foundry SDK — agent invocation & response parsing
-├── 📄 emailService.js         # Gmail API — OAuth2 auth, email drafting & sending
-├── 📂 public/                 # Frontend (served statically by Express)
-│   ├── 📄 index.html          # Single-page semantic HTML layout
-│   ├── 📄 styles.css          # Professional enterprise styling
-│   └── 📄 app.js              # Client-side logic — API calls, UI rendering, modals
-└── 📄 README.md               # This file
+├── .env                    # Environment variables (git-ignored)
+├── .gitignore              # Git ignore rules
+├── package.json            # Node.js dependencies & scripts
+├── server.js               # Express server — API routes & static hosting
+├── foundryService.js       # AI Foundry SDK — agent invocation & response parsing
+├── emailService.js         # Gmail API — OAuth2 auth, email drafting & sending
+├── public/                 # Frontend (served statically by Express)
+│   ├── index.html          # Single-page semantic HTML layout
+│   ├── styles.css          # Professional enterprise styling
+│   └── app.js              # Client-side logic — API calls, UI rendering, modals
+└── README.md               # This file
 ```
 
 ---
 
-# # 🚀 Quick Start (Local Development)
+# Quick Start (Local Development)
 
-## # Prerequisites
+## Prerequisites
 
 - **Node.js 20 LTS** or later
 - **Azure AI Foundry** project with a `candidate-matchmaker` agent
 - **(Optional)** Gmail OAuth2 credentials for email outreach
 
-## # 1. Clone the Repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/Recruiter_AI_agent.git
 cd Recruiter_AI_agent
 ```
 
-## # 2. Install Dependencies
+## 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-## # 3. Configure Environment Variables
+## 3. Configure Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -212,7 +165,7 @@ GMAIL_REFRESH_TOKEN=your-gmail-refresh-token
 COMPANY_NAME=YourCompanyName
 ```
 
-## # 4. Start the Server
+## 4. Start the Server
 
 ```bash
 npm start
@@ -222,23 +175,11 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-# # ☁️ Azure Deployment
+# Azure Deployment
 
 HiringBazzar is deployed on **Azure App Service (Linux, Node 24 LTS)** in the **UAE North** region.
 
-## # Deployment Steps
-
-```mermaid
-flowchart LR
-    A["1️⃣ az group create<br/>— UAE North"] --> B["2️⃣ az appservice<br/>plan create<br/>— B1 Linux"]
-    B --> C["3️⃣ az webapp create<br/>— NODE:24-lts"]
-    C --> D["4️⃣ Compress-Archive<br/>& az webapp deploy"]
-    D --> E["5️⃣ az webapp config<br/>appsettings set"]
-    E --> F["🌐 Live at<br/>hiringbazzar<br/>.azurewebsites.net"]
-
-    style A fill:#DBEAFE,stroke:#2563EB,stroke-width:2px
-    style F fill:#D1FAE5,stroke:#10B981,stroke-width:2px
-```
+## Deployment Steps
 
 ### # Commands Used
 
@@ -260,7 +201,7 @@ az webapp deploy --resource-group recruiter-ai-rg --name HiringBazzar --src-path
 az webapp config appsettings set --resource-group recruiter-ai-rg --name HiringBazzar --settings FOUNDRY_PROJECT_ENDPOINT="..." FOUNDRY_AGENT_NAME="candidate-matchmaker" FOUNDRY_API_KEY="..."
 ```
 
-## # Azure Infrastructure
+## Azure Infrastructure
 
 | Resource | Configuration |
 |---|---|
@@ -273,9 +214,9 @@ az webapp config appsettings set --resource-group recruiter-ai-rg --name HiringB
 
 ---
 
-# # 🔌 API Reference
+# API Reference
 
-## # `GET /api/health`
+## `GET /api/health`
 
 Returns server status and agent configuration.
 
@@ -289,7 +230,7 @@ Returns server status and agent configuration.
 
 ---
 
-## # `POST /api/match-candidates`
+## `POST /api/match-candidates`
 
 Accepts a job description and returns matched candidates.
 
@@ -317,7 +258,7 @@ Accepts a job description and returns matched candidates.
 
 ---
 
-## # `GET /api/email-template`
+## `GET /api/email-template`
 
 Generates a pre-filled interview invitation email draft.
 
@@ -333,7 +274,7 @@ Generates a pre-filled interview invitation email draft.
 
 ---
 
-## # `POST /api/send-email`
+## `POST /api/send-email`
 
 Sends an outreach email via Gmail API.
 
@@ -356,7 +297,7 @@ Sends an outreach email via Gmail API.
 
 ---
 
-# # 🛡️ Security Best Practices
+# Security Best Practices
 
 > [!WARNING]
 > **Never commit your `.env` file or API keys to version control.** The `.gitignore` already excludes `.env`, `token.json`, and `credentials.json`.
@@ -368,9 +309,9 @@ Sends an outreach email via Gmail API.
 
 ---
 
-# # 🔑 How to Obtain Credentials
+# How to Obtain Credentials
 
-## # Microsoft AI Foundry
+## Microsoft AI Foundry
 
 1. Open the [Azure AI Foundry Portal](https://ai.azure.com/)
 2. Select your project → **Project Settings**
@@ -378,7 +319,7 @@ Sends an outreach email via Gmail API.
 4. Create or note the agent named `candidate-matchmaker`
 5. Generate an API key → set as `FOUNDRY_API_KEY`
 
-## # Gmail API (Optional)
+## Gmail API (Optional)
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/) → **APIs & Services**
 2. Enable the **Gmail API**
@@ -388,7 +329,7 @@ Sends an outreach email via Gmail API.
 
 ---
 
-# # 🧠 AI Agent Configuration
+# AI Agent Configuration
 
 To ensure the AI Foundry Agent retrieves candidate emails from resumes, include this in your agent's system instructions:
 
@@ -398,7 +339,7 @@ The backend automatically reinforces this directive in every request prompt.
 
 ---
 
-# # 🛠️ Tech Stack
+# Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -412,7 +353,7 @@ The backend automatically reinforces this directive in every request prompt.
 
 ---
 
-# # 📄 License
+# License
 
 ISC
 
@@ -422,6 +363,6 @@ ISC
 
 **Built with ❤️ using Microsoft AI Foundry & Azure**
 
-[🌐 Live Demo](https://hiringbazzar.azurewebsites.net) · [🐛 Report Bug](https://github.com/your-username/Recruiter_AI_agent/issues) · [💡 Request Feature](https://github.com/your-username/Recruiter_AI_agent/issues)
+[Live Demo](https://hiringbazzar.azurewebsites.net) · [🐛 Report Bug](https://github.com/your-username/Recruiter_AI_agent/issues) · [💡 Request Feature](https://github.com/your-username/Recruiter_AI_agent/issues)
 
 </div>
