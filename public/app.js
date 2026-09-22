@@ -1,6 +1,6 @@
 /**
  * Candidate Matchmaker Client Application
- * Minimal, clean, robust UI handling with Gmail API outreach integration.
+ * Polished, minimal, enterprise-grade UI with Microsoft AI Foundry & Gmail API.
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("submit-btn");
   const btnText = submitBtn.querySelector(".btn-text");
   const sampleBtn = document.getElementById("sample-btn");
+  const clearBtn = document.getElementById("clear-btn");
+  const charCount = document.getElementById("char-count");
 
   const resultsSection = document.getElementById("results-section");
   const resultsCount = document.getElementById("results-count");
@@ -51,9 +53,39 @@ Requirements:
 - Hands-on experience with cloud deployment, Docker, and MLOps.
 - Strong full-stack web development skills (APIs, UI, databases).`;
 
+  // Textarea input handlers for character count & clear button
+  function updateTextareaState() {
+    const len = jobDescriptionInput.value.length;
+    charCount.textContent = `${len.toLocaleString()} character${len === 1 ? "" : "s"}`;
+    if (clearBtn) {
+      clearBtn.style.display = len > 0 ? "inline-block" : "none";
+    }
+  }
+
+  jobDescriptionInput.addEventListener("input", updateTextareaState);
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      jobDescriptionInput.value = "";
+      updateTextareaState();
+      jobDescriptionInput.focus();
+    });
+  }
+
+  // Keyboard shortcut: Ctrl + Enter / Cmd + Enter to submit
+  jobDescriptionInput.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      if (!submitBtn.disabled) {
+        form.requestSubmit();
+      }
+    }
+  });
+
   // Pre-fill sample JD
   sampleBtn.addEventListener("click", () => {
     jobDescriptionInput.value = sampleJD;
+    updateTextareaState();
     jobDescriptionInput.focus();
   });
 
@@ -118,6 +150,13 @@ Requirements:
     errorText.textContent = "";
   }
 
+  function getInitials(name) {
+    if (!name) return "CA";
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
   function renderCandidates(candidates) {
     resultsSection.style.display = "block";
 
@@ -137,35 +176,98 @@ Requirements:
       .map((candidate, idx) => {
         const name = escapeHtml(candidate.name || "Unknown Candidate");
         const email = candidate.email ? escapeHtml(candidate.email) : "";
+        const initials = getInitials(candidate.name);
+
         const score = candidate.match_score !== null && candidate.match_score !== undefined
-          ? `<span class="candidate-score">Match score: ${candidate.match_score}</span>`
+          ? `<span class="candidate-score">${candidate.match_score}% Match</span>`
           : "";
 
         const emailHtml = email
           ? `<a href="mailto:${email}" class="candidate-email">${email}</a>`
           : `<span class="candidate-email" style="color: #94a3b8; font-style: italic;">Email not listed</span>`;
 
+        const copyBtnHtml = email
+          ? `<button type="button" class="copy-email-btn" data-copy="${email}" title="Copy email address">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>`
+          : "";
+
         const isSent = email && sentEmails.has(email.toLowerCase());
         const actionHtml = email
           ? isSent
-            ? `<span class="email-sent-badge">&check; Email Sent</span>`
-            : `<button type="button" class="email-btn" data-name="${name}" data-email="${email}" data-card-id="card-${idx}">Send Email</button>`
+            ? `<span class="email-sent-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Email Sent
+              </span>`
+            : `<button type="button" class="email-btn" data-name="${name}" data-email="${email}" data-card-id="card-${idx}">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                Send Email
+              </button>`
           : "";
 
+        const summaryText = candidate.summary || "";
+        const summaryLines = summaryText
+          .split("\n")
+          .map((l) => l.trim())
+          .filter((l) => Boolean(l) && !/^summary:?$/i.test(l))
+          .map((l) => (l.startsWith("•") || l.startsWith("-") || l.startsWith("*") ? l.replace(/^[-*•]\s*/, "• ") : `• ${l}`));
+
+        const summaryHtml = summaryLines.length > 0
+          ? summaryLines
+              .map((line) => `<div class="summary-bullet-item">${escapeHtml(line)}</div>`)
+              .join("")
+          : `<div class="summary-bullet-item">• Candidate profile exhibits strong alignment with requirements in the JD.</div>`;
+
         return `
-          <div class="candidate-card" id="card-${idx}">
-            <div class="candidate-info">
-              <div class="candidate-name">${name}</div>
-              ${emailHtml}
+          <div class="candidate-item-wrapper" id="card-${idx}">
+            <div class="candidate-card">
+              <div class="candidate-left-group">
+                <div class="candidate-avatar">${initials}</div>
+                <div class="candidate-info">
+                  <div class="candidate-name-row">
+                    <span class="candidate-name">${name}</span>
+                    <button type="button" class="summary-dropdown-btn" data-target="summary-${idx}" aria-expanded="false" title="Click to view 5-line summary">
+                      <span>Summary</span> <span class="summary-chevron">&#9662;</span>
+                    </button>
+                  </div>
+                  <div class="candidate-email-row">
+                    ${emailHtml}
+                    ${copyBtnHtml}
+                  </div>
+                </div>
+              </div>
+              <div class="candidate-side">
+                ${score}
+                ${actionHtml}
+              </div>
             </div>
-            <div class="candidate-side">
-              ${score}
-              ${actionHtml}
+            <div class="candidate-summary-panel" id="summary-${idx}" style="display: none;">
+              <div class="summary-panel-header">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                Interview & Resume Summary
+              </div>
+              <div class="summary-bullets">
+                ${summaryHtml}
+              </div>
             </div>
           </div>
         `;
       })
       .join("");
+
+    // Attach click handlers to Summary dropdown buttons
+    candidatesList.querySelectorAll(".summary-dropdown-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        const panel = document.getElementById(targetId);
+        if (!panel) return;
+
+        const isHidden = panel.style.display === "none";
+        panel.style.display = isHidden ? "block" : "none";
+        btn.classList.toggle("active", isHidden);
+        btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+      });
+    });
 
     // Attach click handlers to Send Email buttons
     candidatesList.querySelectorAll(".email-btn").forEach((btn) => {
@@ -174,6 +276,18 @@ Requirements:
         const email = btn.getAttribute("data-email");
         const cardId = btn.getAttribute("data-card-id");
         openEmailModal(name, email, cardId);
+      });
+    });
+
+    // Attach click handlers to copy email buttons
+    candidatesList.querySelectorAll(".copy-email-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const emailToCopy = btn.getAttribute("data-copy");
+        if (emailToCopy) {
+          navigator.clipboard.writeText(emailToCopy).then(() => {
+            showToast(`Copied ${emailToCopy} to clipboard`);
+          });
+        }
       });
     });
 
@@ -194,14 +308,60 @@ Requirements:
       role = roleMatch[1].trim();
     }
 
+    let company = "";
+    const companyMatch = jd.match(/Company:\s*([^\n]+)/i) || jd.match(/Organization:\s*([^\n]+)/i);
+    if (companyMatch) {
+      company = companyMatch[1].trim();
+    }
+
     try {
-      const res = await fetch(`/api/email-template?name=${encodeURIComponent(candidateName)}&role=${encodeURIComponent(role)}`);
+      const queryParams = new URLSearchParams({
+        name: candidateName,
+        role: role,
+        ...(company ? { company } : {}),
+      });
+      const res = await fetch(`/api/email-template?${queryParams.toString()}`);
       const template = await res.json();
       emailSubject.value = template.subject;
       emailBody.value = template.body;
     } catch (e) {
-      emailSubject.value = `Interview Invitation: ${role} Opportunity`;
-      emailBody.value = `Dear ${candidateName},\n\nWe reviewed your profile and would love to invite you for an interview.\n\nBest regards,\nTalent Acquisition`;
+      const comp = company || "company name";
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 2);
+      const formattedDate = targetDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      emailSubject.value = `Virtual Interview Round Invitation: ${role} - ${candidateName}`;
+      emailBody.value = `Dear ${candidateName},
+
+Congratulations!
+
+We are pleased to inform you that you have successfully cleared the **Resume Screening Round** for the position of **${role}** at **${comp}**.
+
+Based on your qualifications, experience, and profile, your application has been shortlisted for the **next stage of our recruitment process — the Virtual Interview Round**.
+
+### Interview Details
+
+**Date:** ${formattedDate}
+**Time:** 10:00 AM
+**Mode:** Online
+**Meeting Link:** https://meet.google.com/abc-defg-hij
+
+We kindly request you to **join the meeting at least 5 minutes before the scheduled time** to ensure that your audio, video, and internet connection are working properly.
+
+Please keep a copy of your resume and any relevant documents readily available during the interview.
+
+We appreciate your interest in **${comp}** and look forward to speaking with you. We wish you the very best for the upcoming round.
+
+warm regards, 
+HR , 
+${comp}
+companyname@gmail.com
++9999999999`;
     }
 
     emailModal.style.display = "flex";
@@ -264,12 +424,12 @@ Requirements:
         }
         const badge = document.createElement("span");
         badge.className = "email-sent-badge";
-        badge.innerHTML = "&check; Email Sent";
+        badge.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg> Email Sent`;
         sideDiv.appendChild(badge);
       }
 
       closeEmailModal();
-      showToast(`Outreach email sent successfully to ${to}!`);
+      showToast(`Outreach email sent successfully to ${to}`);
     } catch (err) {
       alert(`Error sending email: ${err.message}`);
     } finally {
@@ -281,10 +441,10 @@ Requirements:
 
   function showToast(msg) {
     toastText.textContent = msg;
-    toast.style.display = "block";
+    toast.style.display = "flex";
     setTimeout(() => {
       toast.style.display = "none";
-    }, 4500);
+    }, 4000);
   }
 
   function escapeHtml(str) {

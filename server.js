@@ -56,8 +56,14 @@ app.post("/api/match-candidates", async (req, res) => {
 
 // Outreach email draft generator endpoint
 app.get("/api/email-template", (req, res) => {
-  const { name, role } = req.query;
-  const draft = generateDraftEmail(name, role);
+  const { name, role, company, date, time, timeZone, meetingLink } = req.query;
+  const draft = generateDraftEmail(name, role, {
+    company,
+    date,
+    time,
+    timeZone,
+    meetingLink,
+  });
   res.json(draft);
 });
 

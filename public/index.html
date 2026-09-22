@@ -14,6 +14,13 @@
   <div class="app-container">
     <!-- Header -->
     <header class="app-header">
+      <div class="header-badge-row">
+        <div class="agent-status-badge">
+          <span class="status-indicator-dot"></span>
+          <span>Foundry Agent Online</span>
+        </div>
+        <span class="kb-tag">Knowledge: candidate-resumes</span>
+      </div>
       <h1 class="app-title">Candidate Matchmaker</h1>
       <p class="app-subtitle">Find the candidates that best match your job description.</p>
     </header>
@@ -22,8 +29,16 @@
     <main class="main-content">
       <form id="match-form" class="match-form">
         <div class="form-header">
-          <label for="job-description" class="form-label">Job Description</label>
-          <button type="button" id="sample-btn" class="sample-btn">Use sample JD</button>
+          <div class="form-label-group">
+            <label for="job-description" class="form-label">Job Description</label>
+            <span id="char-count" class="char-count">0 characters</span>
+          </div>
+          <div class="form-quick-actions">
+            <button type="button" id="clear-btn" class="ghost-btn" style="display: none;">Clear</button>
+            <button type="button" id="sample-btn" class="sample-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: -1px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>Use sample JD
+            </button>
+          </div>
         </div>
 
         <textarea
@@ -31,12 +46,14 @@
           name="jobDescription"
           class="job-textarea"
           rows="9"
-          placeholder="Paste the job description here..."
+          placeholder="Paste the job description here (responsibilities, required skills, experience level)..."
           required
         ></textarea>
 
-        <div class="form-actions">
+        <div class="form-footer">
+          <span class="shortcut-tip">Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to find matches</span>
           <button type="submit" id="submit-btn" class="primary-btn">
+            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <span class="btn-text">Find Candidates</span>
             <span class="btn-spinner" aria-hidden="true"></span>
           </button>
@@ -51,8 +68,11 @@
       <!-- Results Section -->
       <section id="results-section" class="results-section" style="display: none;">
         <div class="results-header">
-          <h2 class="results-title">Matching Candidates</h2>
-          <span id="results-count" class="results-count"></span>
+          <div class="results-title-group">
+            <h2 class="results-title">Matching Candidates</h2>
+            <span id="results-count" class="results-count"></span>
+          </div>
+          <div class="results-subtext">Ranked by agent fit against resumes</div>
         </div>
 
         <div id="candidates-list" class="candidates-list">
@@ -82,7 +102,7 @@
           </div>
           <div class="form-group">
             <label for="email-body" class="field-label">Message</label>
-            <textarea id="email-body" class="text-input textarea-body" rows="8" required></textarea>
+            <textarea id="email-body" class="text-input textarea-body" rows="14" required></textarea>
           </div>
           <div class="modal-actions">
             <button type="button" id="modal-cancel-btn" class="secondary-btn">Cancel</button>
