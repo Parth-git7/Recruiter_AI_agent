@@ -1,0 +1,118 @@
+================================================================================
+                      MEI LIN ZHAO
+================================================================================
+Email: meilin.zhao.pentest@gmail.com | Phone: +1 (415) 229-7723
+LinkedIn: linkedin.com/in/meilin-zhao-security | GitHub: github.com/meilin-sec
+Location: San Francisco, CA 94105
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Mid-Level Penetration Tester and Application Security Engineer with 4 years of
+experience in web, API, and mobile security assessments. Bug bounty hunter with
+$87,000+ in total payouts across HackerOne and Bugcrowd programs. Specialized
+in OWASP Top 10, API security, and cloud misconfiguration hunting. Comfortable
+with both manual testing and automated pipeline integration (DevSecOps).
+Passionate about building secure-by-default developer cultures through security
+training and tooling.
+
+================================================================================
+SKILLS
+================================================================================
+
+Application Security:
+  - Web Pentesting: Burp Suite Pro, OWASP ZAP, Nikto, SQLmap
+  - API Security: REST/GraphQL/gRPC pen testing, JWT attacks, OAuth flaws
+  - Mobile: Frida, MobSF, drozer (Android); objection, class-dump (iOS)
+  - Code Review: Manual SAST, Semgrep rule writing, CodeQL
+  - OWASP Top 10, OWASP API Security Top 10
+
+Cloud Security:
+  - AWS: S3 bucket misconfigs, IAM privilege escalation, EC2 metadata attacks
+  - GCP: Service account abuse, GCS misconfig
+  - Azure: App Service auth bypass, Managed Identity attacks
+  - ScoutSuite, Prowler, Pacu (AWS exploitation framework)
+
+Reverse Engineering:
+  - Ghidra, IDA Pro (basic static analysis)
+  - x86/x64 assembly reading, basic binary reversing
+
+Network Security:
+  - Nmap, Masscan, Nessus, OpenVAS
+  - TCP/IP protocol analysis (Wireshark, tcpdump)
+  - VPN, firewall rule analysis
+
+DevSecOps:
+  - Snyk, Trivy, OWASP Dependency-Check in CI/CD pipelines
+  - GitHub Actions security scanning integration
+  - Docker image scanning, Kubernetes RBAC auditing
+
+Programming:
+  - Python (exploit scripting, automation), JavaScript, Bash
+  - Go (basic tooling)
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+PENETRATION TESTER / APPSEC ENGINEER
+Bugcrowd (Managed Bug Bounty Programs) — San Francisco, CA  Jan 2022 – Present
+-------------------------------------------------------------------------
+• Conduct web and API penetration tests for Fortune 500 bug bounty program
+  clients including fintech, healthcare, and SaaS companies.
+• Discovered and reported 3 critical vulnerabilities (CVSS 9.0+) in major
+  financial platforms leading to $30,000+ bug bounty payouts.
+• Developed custom Python tooling for automated API endpoint discovery and
+  authentication testing, reducing initial recon time by 60%.
+• Wrote security training material on OWASP API Top 10 for 200+ developers
+  across 5 client organizations.
+• Authored 40+ detailed pentest reports with reproduction steps and remediation
+  guidance.
+
+APPLICATION SECURITY ANALYST
+Twilio — San Francisco, CA                                  Aug 2020 – Dec 2021
+-------------------------------------------------------------------------
+• Performed security code reviews of Twilio SDKs (Python, Node.js, Java) and
+  internal APIs; identified 15 medium/high vulnerabilities pre-release.
+• Integrated SAST tools (Semgrep, Snyk) into the CI/CD pipeline; reduced
+  vulnerable dependencies reaching production by 78%.
+• Conducted OWASP Top 10 training sessions for 150 engineers across 4 teams.
+• Ran quarterly red team light assessments of external-facing web properties.
+
+SECURITY INTERN
+Palo Alto Networks — Santa Clara, CA                        May 2019 – Jul 2019
+-------------------------------------------------------------------------
+• Assisted Unit 42 threat research team with malware sample analysis.
+• Wrote Python scripts to automate IOC extraction from threat intelligence feeds.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.S. Computer Science — Cybersecurity Concentration
+UC San Diego — La Jolla, CA                                                 2020
+GPA: 3.71/4.0
+Relevant Coursework: Network Security, Cryptography, Malware Analysis,
+  Software Security, Operating Systems
+
+================================================================================
+BUG BOUNTY HIGHLIGHTS
+================================================================================
+
+• HackerOne Hall of Fame — Top 200 globally (2023)
+• Critical RCE in major healthcare SaaS platform — $25,000 payout
+• SSRF in Fortune 100 cloud platform — $15,000 payout
+• OAuth token hijacking in consumer app — $8,500 payout
+• Total earned: $87,200+ across 95 valid vulnerabilities
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• OSCP — Offensive Security (2022)
+• BSCP — Burp Suite Certified Practitioner (2023)
+• AWS Certified Security – Specialty (2023)
+• eJPT — eLearnSecurity (2020)
+• CompTIA Security+ (2020)
+
+================================================================================

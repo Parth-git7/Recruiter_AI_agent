@@ -1,0 +1,108 @@
+================================================================================
+                         NATASHA IVANOVA
+================================================================================
+Email: natasha.ivanova@gmail.com | Phone: +1 (628) 310-9985
+LinkedIn: linkedin.com/in/natasha-ivanova-ds | GitHub: github.com/n-ivanova-ds
+Location: San Francisco, CA 94107
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Senior Data Scientist with 8 years of experience in statistical modeling,
+machine learning, and advanced analytics across fintech and e-commerce. Expert
+in Python-based ML, experiment design, and communicating insights to executive
+stakeholders. Growing experience with production deployment via FastAPI and
+basic web tooling. Comfortable with ML model serving but not a full-stack
+engineer — limited React/frontend experience. Looking to grow into a more
+engineering-oriented ML role.
+
+================================================================================
+SKILLS
+================================================================================
+
+Data Science & ML (Expert):
+  - Python: Scikit-learn, XGBoost, LightGBM, Statsmodels, SciPy
+  - Time Series: Prophet, ARIMA, LSTM-based forecasting
+  - NLP: SpaCy, NLTK, Gensim, basic HuggingFace Transformers
+  - Causal Inference: DoWhy, A/B Testing, Difference-in-Differences
+  - Experiment Design: Statistical power analysis, multi-armed bandits
+
+ML Engineering (Intermediate):
+  - PyTorch (basic neural nets, transfer learning)
+  - MLflow (experiment tracking, model registry)
+  - FastAPI (simple serving endpoints)
+  - Docker (containerizing Python apps)
+  - AWS SageMaker Notebooks and basic Batch Transform
+
+Data Engineering:
+  - SQL (Advanced: window functions, CTEs, optimization)
+  - Apache Spark (PySpark), Databricks, dbt
+  - Airflow (basic DAGs), BigQuery, Snowflake, Redshift
+
+Visualization & BI:
+  - Tableau, Looker, Plotly Dash, Matplotlib, Seaborn
+  - Some Streamlit for prototyping
+
+Frontend / Full Stack (Beginner):
+  - Minimal HTML/CSS, occasional Streamlit
+  - No production React or frontend experience
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+LEAD DATA SCIENTIST
+Chime (FinTech) — San Francisco, CA                         Oct 2020 – Present
+-------------------------------------------------------------------------
+• Built credit risk scoring model (XGBoost + SHAP) reducing default rate by
+  23% among new members; model serves 800K+ monthly applicants.
+• Led customer lifetime value (LTV) modeling and churn prediction, directly
+  informing $50M+ in marketing spend allocation.
+• Designed and analyzed 200+ A/B experiments across product, growth, and
+  pricing teams; established company's experiment review standards.
+• Deployed risk model as a FastAPI microservice (containerized); backend
+  engineering team handled Kubernetes deployment.
+• Managed team of 3 junior data scientists; defined team roadmaps.
+• Presented model results and recommendations to C-suite quarterly.
+
+SENIOR DATA SCIENTIST
+Wish (e-commerce) — San Francisco, CA                       Mar 2017 – Sep 2020
+-------------------------------------------------------------------------
+• Built product ranking and search personalization models serving 100M+ users.
+• Developed real-time bidding (RTB) prediction pipeline for ad auction system.
+• Built Airflow DAGs for daily feature refresh used by production models.
+• No significant frontend work during this period.
+
+DATA SCIENTIST
+Yandex — Moscow, Russia                                     Sep 2015 – Feb 2017
+-------------------------------------------------------------------------
+• Built ride-sharing demand forecasting models (LSTM + Fourier features).
+• Conducted statistical analysis on search ranking experiments.
+
+================================================================================
+EDUCATION
+================================================================================
+
+M.S. Applied Mathematics & Statistics
+Saint Petersburg State University — Russia                                  2015
+GPA: Honors (Top 5%)
+
+B.S. Mathematics
+Saint Petersburg State University — Russia                                  2013
+
+================================================================================
+PUBLICATIONS & TALKS
+================================================================================
+
+• Ivanova, N. "Causal ML in Production: Lessons from Fintech," PyData NYC 2022.
+• Ivanova, N. et al. "Hierarchical Bayesian LTV Modeling," KDD Applied Data
+  Science Track 2021.
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• AWS Certified Machine Learning – Specialty (2021)
+• Databricks Certified Machine Learning Professional (2022)
+
+================================================================================

@@ -1,0 +1,112 @@
+================================================================================
+                      OMAR AL-RASHID
+================================================================================
+Email: omar.alrashid.soc@outlook.com | Phone: +1 (469) 882-5501
+LinkedIn: linkedin.com/in/omar-alrashid-soc | GitHub: github.com/omar-soc
+Location: Dallas, TX 75201
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+SOC Analyst Level 2 with 3 years of experience in threat monitoring, incident
+response, and digital forensics. Proficient with Splunk, Microsoft Sentinel, and
+CrowdStrike Falcon. Experienced in triaging alerts, hunting for APT indicators,
+and conducting root-cause analysis on security incidents. Pursuing OSCP to
+transition into offensive security. Strong communicator who bridges SOC operations
+with IT and business stakeholders. Eager to grow into a senior security or
+threat hunting role.
+
+================================================================================
+SKILLS
+================================================================================
+
+SOC Operations:
+  - SIEM: Splunk (SPL queries, custom dashboards, correlation rules),
+    Microsoft Sentinel (KQL queries), IBM QRadar
+  - EDR: CrowdStrike Falcon, Microsoft Defender for Endpoint, Carbon Black
+  - Ticketing: ServiceNow, Jira, TheHive (incident management)
+  - Alert triage, false positive reduction, L1/L2 escalation workflow
+
+Threat Intelligence & Hunting:
+  - MITRE ATT&CK framework (TTP identification and hunting)
+  - Threat feeds: VirusTotal, Shodan, AbuseIPDB, OTX AlienVault
+  - IOC management: MISP, OpenCTI
+  - Proactive threat hunting using Splunk saved searches and anomaly detection
+
+Incident Response & Forensics:
+  - Memory forensics: Volatility 3
+  - Disk forensics: Autopsy, FTK Imager, Sleuth Kit
+  - Log analysis: Windows Event Logs, Sysmon, Linux auditd
+  - Malware triage: Any.run, Cuckoo Sandbox, YARA rule creation
+
+Network Security:
+  - Wireshark, tcpdump, Zeek (network traffic analysis)
+  - Firewall log analysis (Palo Alto, Fortinet, Cisco ASA)
+  - IDS/IPS: Snort, Suricata
+
+Scripting & Automation:
+  - Python (SOAR automation scripts, IOC enrichment), PowerShell, Bash
+  - Splunk SOAR (Phantom) basic playbook development
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+SOC ANALYST — LEVEL 2
+Optiv Security (MSSP) — Dallas, TX                          Oct 2023 – Present
+-------------------------------------------------------------------------
+• Monitor security events for 12 enterprise clients across healthcare, finance,
+  and retail using Splunk and Microsoft Sentinel.
+• Triage 50-80 alerts daily; escalate ~5% as confirmed incidents with full
+  investigation reports.
+• Led threat hunting campaign targeting ALPHV/BlackCat ransomware TTPs; detected
+  2 pre-ransomware intrusions before encryption stage.
+• Developed 15+ Splunk correlation rules improving true-positive rate by 23%.
+• Conduct post-incident forensic analysis, writing RCA reports distributed to
+  client C-suite and IT teams.
+• Mentoring 2 Level 1 analysts on triage methodology.
+
+SOC ANALYST — LEVEL 1
+SecureWorks — Dallas, TX                                    Jun 2021 – Sep 2023
+-------------------------------------------------------------------------
+• Triaged alerts and performed initial investigation for Fortune 500 clients.
+• Documented 200+ incidents in TheHive with full kill chain analysis.
+• Wrote Python scripts to automate IP/domain reputation lookups via VirusTotal
+  API, saving ~2 hours/shift per analyst.
+
+IT INTERN
+Nationstar Mortgage — Dallas, TX                            Jan 2021 – May 2021
+-------------------------------------------------------------------------
+• Assisted IT helpdesk and network monitoring team.
+• Completed CompTIA Security+ during this period.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.S. Information Technology — Cybersecurity Track
+University of Texas at Dallas — Richardson, TX                              2021
+GPA: 3.5/4.0
+Relevant Coursework: Network Security, Ethical Hacking, Forensics,
+  Cryptography, Systems Administration
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• CompTIA Security+ (2021)
+• CompTIA CySA+ (2022)
+• Microsoft Certified: Security Operations Analyst (SC-200) (2023)
+• Splunk Core Certified Power User (2022)
+• BTL1 — Blue Team Labs Level 1 (2022)
+• OSCP (in progress — exam scheduled Q1 2025)
+
+================================================================================
+CTF & COMPETITIONS
+================================================================================
+
+• National Cyber League (NCL) — Top 12% nationally (2020, 2021)
+• TryHackMe — Top 1% globally (rank: 1,240/800K+ users)
+• HackTheBox — Pro Hacker rank (30+ machines owned)
+
+================================================================================

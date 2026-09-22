@@ -1,0 +1,111 @@
+================================================================================
+                     JESSICA THORNTON
+================================================================================
+Email: jessica.thornton.hr@outlook.com | Phone: +1 (614) 772-4481
+LinkedIn: linkedin.com/in/jessica-thornton-hrops
+Location: Columbus, OH 43215
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+HR Operations Manager with 6 years of experience owning the systems, processes,
+and infrastructure that enable HR functions to run efficiently at scale. Deep
+expertise in HRIS implementation and optimization (Workday, ADP), benefits
+administration, payroll coordination, HR compliance, and people data analytics.
+Skilled at automating manual HR processes, improving data quality, and providing
+actionable workforce reporting to business leaders. Strong project manager who
+has led multiple HR system migrations and open enrollment redesigns.
+
+================================================================================
+SKILLS
+================================================================================
+
+HR Operations & Systems:
+  - HRIS: Workday HCM (Core HCM, Absence, Time Tracking, Reporting), ADP
+    Workforce Now, UltiPro (UKG Pro), BambooHR, SAP SuccessFactors (basic)
+  - Payroll: ADP, Paylocity; payroll audit and reconciliation
+  - ATS: Greenhouse, iCIMS (admin and reporting)
+  - HRIS Implementation: led 3 Workday implementations/upgrades as PM
+  - Systems integration: HRIS-to-payroll, HRIS-to-benefits carrier data feeds
+
+Benefits Administration:
+  - Benefits plan design oversight: medical, dental, vision, FSA/HSA, 401(k)
+  - Annual open enrollment management (3,000–8,000 employee programs)
+  - Benefits vendor management (CIGNA, Aetna, Fidelity, Voya)
+  - LOA administration: FMLA, ADA accommodations, state leave programs
+  - COBRA administration, new hire benefits onboarding
+
+Compliance & Policy:
+  - Federal/state HR compliance: FLSA, ADA, FMLA, I-9/E-Verify, EEO-1 filing
+  - Employee handbook policy development and annual updates
+  - Audit support: SOC 2 HR controls, SOX HR data controls
+
+People Analytics & Reporting:
+  - Workday report writer, calculated fields, dashboards
+  - Excel (advanced: VLOOKUP, pivot tables, Power Query, macros)
+  - Basic Tableau for workforce reporting
+  - Monthly/quarterly HR metric packages for CHRO and board
+
+Project Management:
+  - HR process automation (Workday business processes, DocuSign workflows)
+  - Cross-functional project management (IT, Finance, Legal)
+  - Onboarding/offboarding process optimization
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+HR OPERATIONS MANAGER
+Nationwide Insurance — Columbus, OH                         Apr 2021 – Present
+-------------------------------------------------------------------------
+• Own all HR operations for 7,500-employee enterprise: HRIS, payroll, benefits,
+  compliance, and people data reporting.
+• Led Workday Phase 2 implementation (Absence, Time Tracking, Advanced
+  Compensation modules) — on time, $200K under budget, 99.7% data accuracy.
+• Redesigned open enrollment process (8,000 employees): launched self-service
+  Workday benefits portal, reducing HR call volume during OE by 65%.
+• Built automated headcount and attrition reporting dashboard (Workday + Tableau)
+  delivered weekly to CHRO and monthly to the Board.
+• Reduced payroll error rate from 1.2% to 0.15% by implementing weekly payroll
+  preview audits and ADP reconciliation automation.
+• Managed HR Operations team of 4 (benefits specialist, payroll coordinator,
+  HRIS analyst, HR coordinator).
+• Ensured EEO-1 filing, OSHA 300 log, and state-specific compliance across 12
+  states.
+
+HR OPERATIONS SPECIALIST → SENIOR SPECIALIST
+Victoria's Secret (L Brands) — Columbus, OH                 Jun 2017 – Mar 2021
+-------------------------------------------------------------------------
+• Managed ADP Workforce Now for 4,000-employee retail/corporate workforce.
+• Led annual benefits open enrollment for 3,500 benefits-eligible employees.
+• Administered FMLA/LOA process; tracked 200+ active LOA cases monthly.
+• Built HR metric reporting package (headcount, turnover, cost per hire) from
+  scratch using Excel; delivered monthly to HR leadership.
+• Supported I-9 E-Verify audit and remediated 150+ compliance gaps.
+
+HR COORDINATOR
+Express Scripts — Columbus, OH                              Jan 2016 – May 2017
+-------------------------------------------------------------------------
+• Onboarded 50+ new hires monthly (paperwork, I-9, benefits enrollment, HRIS).
+• Maintained employee records in UltiPro; assisted with payroll data entry.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.S. Business Administration — Human Resources
+Ohio State University — Columbus, OH                                        2015
+GPA: 3.55/4.0
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• SHRM-CP — Society for Human Resource Management (Active)
+• Workday HCM Core Certified (2021)
+• Workday Report Writer Certified (2022)
+• ADP Workforce Now Certified Specialist (2019)
+• PHR — HRCI (Active)
+• Lean Six Sigma White Belt (2023)
+
+================================================================================

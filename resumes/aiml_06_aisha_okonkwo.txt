@@ -1,0 +1,107 @@
+================================================================================
+                         AISHA OKONKWO
+================================================================================
+Email: aisha.okonkwo@gmail.com | Phone: +1 (929) 445-8821
+LinkedIn: linkedin.com/in/aisha-okonkwo-ml | GitHub: github.com/aisha-okonkwo
+Location: New York, NY 10013
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Recent graduate and junior AI/ML Engineer with 1.5 years of professional
+experience. Strong academic foundation in machine learning, NLP, and statistical
+modeling. Completed multiple personal and capstone projects involving model
+training, deployment, and API integration. Eager to grow in a fast-paced AI
+team. Currently building full-stack skills via self-study (Next.js, FastAPI).
+
+================================================================================
+SKILLS
+================================================================================
+
+Machine Learning & AI:
+  - Python, NumPy, Pandas, Matplotlib, Seaborn
+  - Scikit-learn, XGBoost, LightGBM (supervised learning, feature engineering)
+  - PyTorch (basic CNNs, transfer learning with ResNet/VGG)
+  - HuggingFace Transformers (fine-tuning BERT for text classification)
+  - Basics of LangChain and RAG concepts
+  - Coursework: Deep Learning, Statistical ML, NLP, Computer Vision
+
+Backend:
+  - Python, FastAPI, Flask (REST APIs)
+  - PostgreSQL, SQLite, basic SQL
+  - Docker (basic containerization)
+
+Frontend (Beginner):
+  - HTML, CSS, basic JavaScript
+  - Streamlit (for ML prototypes and demos)
+  - Learning React.js (personal project stage)
+
+Cloud:
+  - AWS (S3, EC2 basics, SageMaker Studio Notebooks)
+  - Google Colab, Kaggle Notebooks
+  - Basic GitHub Actions CI
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+JUNIOR ML ENGINEER
+Dataiku — New York, NY                                      Jul 2023 – Present
+-------------------------------------------------------------------------
+• Assisted senior engineers in building text classification pipelines for a
+  legal document processing client (BERT fine-tuning, HuggingFace).
+• Built data preprocessing scripts (Python/Pandas) for training dataset
+  cleaning and augmentation, improving model F1 from 0.79 to 0.86.
+• Developed a simple FastAPI endpoint serving the fine-tuned classifier with
+  basic auth; deployed on AWS EC2 with Docker.
+• Created Streamlit demo applications for client-facing model presentations.
+• Participated in weekly ML research reading groups; presented 3 papers.
+
+ML INTERN
+Bloomberg LP — New York, NY                                 Jun 2022 – Aug 2022
+-------------------------------------------------------------------------
+• Prototyped a news headline sentiment scoring model using FinBERT.
+• Wrote data extraction scripts pulling from Bloomberg's internal APIs.
+• Built a simple Streamlit dashboard for the quant team to explore model output.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.S. Computer Science
+Columbia University — New York, NY                                          2023
+GPA: 3.78/4.0
+Relevant Coursework: Machine Learning, Deep Learning, NLP, Algorithms,
+  Databases, Software Engineering, Linear Algebra, Probability & Statistics
+Senior Capstone: "Few-Shot Learning for Medical Text Classification"
+  — Fine-tuned BioBERT with prototypical networks on PubMed abstracts.
+
+================================================================================
+PROJECTS
+================================================================================
+
+• RecipeAI — FastAPI + HuggingFace text-generation API that suggests recipes
+  based on ingredients; deployed to Heroku (Streamlit frontend).
+• Fake News Detector — BERT fine-tuned on LIAR dataset; 89% test accuracy;
+  full report on Medium (2K views).
+• NYC Housing Price Predictor — XGBoost model with Streamlit dashboard showing
+  feature importances and predictions by ZIP code.
+• GitHub: 8 repositories, primarily ML projects with Jupyter notebooks and
+  accompanying FastAPI serving code.
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• Machine Learning Specialization – Coursera / Andrew Ng (2022)
+• Deep Learning Specialization – Coursera (2023)
+• AWS Cloud Practitioner (2023)
+
+================================================================================
+AWARDS
+================================================================================
+
+• Columbia Hackathon 2023 — 1st Place, AI/ML Track (Healthcare NLP project)
+• Dean's List — Columbia University (6/8 semesters)
+
+================================================================================

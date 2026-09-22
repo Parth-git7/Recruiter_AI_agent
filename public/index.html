@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate Matchmaker</title>
+  <meta name="description" content="Find the candidates that best match your job description using Microsoft AI Foundry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">Candidate Matchmaker</h1>
+      <p class="app-subtitle">Find the candidates that best match your job description.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <form id="match-form" class="match-form">
+        <div class="form-header">
+          <label for="job-description" class="form-label">Job Description</label>
+          <button type="button" id="sample-btn" class="sample-btn">Use sample JD</button>
+        </div>
+
+        <textarea
+          id="job-description"
+          name="jobDescription"
+          class="job-textarea"
+          rows="9"
+          placeholder="Paste the job description here..."
+          required
+        ></textarea>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="primary-btn">
+            <span class="btn-text">Find Candidates</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Error State -->
+      <div id="error-message" class="error-banner" role="alert" style="display: none;">
+        <span class="error-text"></span>
+      </div>
+
+      <!-- Results Section -->
+      <section id="results-section" class="results-section" style="display: none;">
+        <div class="results-header">
+          <h2 class="results-title">Matching Candidates</h2>
+          <span id="results-count" class="results-count"></span>
+        </div>
+
+        <div id="candidates-list" class="candidates-list">
+          <!-- Candidate cards inserted by app.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Outreach Email Modal -->
+    <div id="email-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 class="modal-title">Send Outreach Email</h3>
+          <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form id="email-form" class="email-form">
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <label for="email-to" class="field-label">Recipient Email</label>
+              <span style="font-size: 11px; color: var(--text-muted);">Editable for testing</span>
+            </div>
+            <input type="email" id="email-to" class="text-input" placeholder="candidate@example.com or your test email" required />
+          </div>
+          <div class="form-group">
+            <label for="email-subject" class="field-label">Subject</label>
+            <input type="text" id="email-subject" class="text-input" required />
+          </div>
+          <div class="form-group">
+            <label for="email-body" class="field-label">Message</label>
+            <textarea id="email-body" class="text-input textarea-body" rows="8" required></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="modal-cancel-btn" class="secondary-btn">Cancel</button>
+            <button type="submit" id="modal-send-btn" class="primary-btn">
+              <span class="btn-text">Send Email</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification" style="display: none;">
+      <span id="toast-text"></span>
+    </div>
+
+    <!-- Minimal enterprise footer -->
+    <footer class="app-footer">
+      <p>Powered by Microsoft AI Foundry Agent Service &bull; Gmail API Outreach</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

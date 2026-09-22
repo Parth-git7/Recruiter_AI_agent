@@ -1,0 +1,101 @@
+================================================================================
+                            MARCUS JOHNSON
+================================================================================
+Email: marcus.johnson.dev@gmail.com | Phone: +1 (512) 334-8812
+LinkedIn: linkedin.com/in/marcus-johnson-fullstack | GitHub: github.com/mjohnson-ai
+Location: Austin, TX 78701
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Full Stack Software Engineer with 4 years of experience and a strong pivot into
+AI/ML over the last 2 years. Comfortable building React-based UIs, REST/GraphQL
+APIs with Node.js and Python, and integrating machine learning models into
+production web applications. Proficient with LangChain, OpenAI APIs, and
+Scikit-learn. Seeking to deepen ML expertise while contributing full-stack
+product velocity.
+
+================================================================================
+SKILLS
+================================================================================
+
+AI/ML:
+  - Python, Scikit-learn, XGBoost, LightGBM
+  - LangChain, OpenAI API, Anthropic API, Vector Databases (Pinecone, Chroma)
+  - Basic PyTorch (CNNs, fine-tuning pre-trained models)
+  - ML Ops: MLflow experiment tracking, basic Airflow DAGs
+
+Backend:
+  - Node.js (Express), Python (FastAPI, Flask), REST & GraphQL APIs
+  - PostgreSQL, MySQL, MongoDB, Redis
+  - AWS (EC2, S3, Lambda, RDS), Firebase
+
+Frontend:
+  - React.js, Next.js, TypeScript, JavaScript (ES6+)
+  - Redux, React Query, Tailwind CSS, Chakra UI
+  - Testing: Jest, Cypress, React Testing Library
+
+DevOps:
+  - Docker, Docker Compose, GitHub Actions CI/CD
+  - Basic Kubernetes (deploying pre-built Helm charts)
+  - Linux/Bash scripting
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+SOFTWARE ENGINEER — AI PRODUCTS
+HomeAway (VRBO) — Austin, TX                                Sep 2022 – Present
+-------------------------------------------------------------------------
+• Integrated OpenAI GPT-4 API into property search, enabling natural language
+  queries (e.g., "pet-friendly beach house under $200/night for 6 people"),
+  increasing booking conversion by 9%.
+• Built a LangChain-based Q&A chatbot over property documents and FAQs using
+  Pinecone vector DB; reduced customer support tickets by 22%.
+• Developed full-stack admin dashboard (React + TypeScript + FastAPI) for
+  content moderation team, including ML-powered spam detection toggle.
+• Maintained PostgreSQL-based feature store feeding nightly recommendation
+  pipeline (Scikit-learn collaborative filtering).
+• Set up CI/CD pipelines with GitHub Actions; containerized services with Docker.
+
+FULL STACK DEVELOPER
+Accenture — Austin, TX                                      Jul 2020 – Aug 2022
+-------------------------------------------------------------------------
+• Delivered 3 client web applications (React + Node.js + PostgreSQL) across
+  fintech and retail verticals.
+• Built REST APIs consumed by mobile and web clients; implemented JWT auth.
+• Started self-study in ML during this period; completed multiple Coursera courses.
+
+SOFTWARE ENGINEER INTERN
+Dell Technologies — Round Rock, TX                          May 2019 – Jun 2020
+-------------------------------------------------------------------------
+• Developed internal tooling with Angular and Python Flask for hardware inventory
+  management; automated report generation saving 20 hrs/week.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.S. Computer Science
+University of Texas at Austin — Austin, TX                                  2020
+GPA: 3.6/4.0 | Minor: Statistics
+
+================================================================================
+PROJECTS
+================================================================================
+
+• AI Resume Screener — LangChain + Pinecone + React app that ranks resumes
+  against a JD using RAG; deployed on Vercel + Railway.
+• Sentiment Dashboard — Real-time Twitter sentiment analysis (Scikit-learn +
+  React + WebSocket) with live chart updates.
+• Open Source: Contributed 12 PRs to LangChain (documentation + bug fixes).
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• AWS Certified Developer – Associate (2023)
+• Machine Learning Specialization – Coursera / Andrew Ng (2022)
+• LangChain & Vector Databases in Production – DeepLearning.AI (2023)
+
+================================================================================

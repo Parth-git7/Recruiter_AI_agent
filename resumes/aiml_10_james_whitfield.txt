@@ -1,0 +1,117 @@
+================================================================================
+                       DR. JAMES WHITFIELD
+================================================================================
+Email: james.whitfield.ai@gmail.com | Phone: +1 (617) 880-2234
+LinkedIn: linkedin.com/in/jwhitfield-ai-research | GitHub: github.com/jwhitfield-ai
+Location: Cambridge, MA 02138
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+AI Research Engineer and former academic with a Ph.D. in Computer Science
+(Machine Learning). 9 years of combined research and industry experience in
+deep learning, generative AI, and AI systems. Published 14 peer-reviewed papers
+with 2,000+ citations. Recently transitioned from pure research to applied
+engineering; building strong full-stack skills to complement deep ML expertise.
+Contributed to production AI systems at scale. Excellent communicator, technical
+leader, and mentor.
+
+================================================================================
+SKILLS
+================================================================================
+
+AI Research & Deep Learning (Expert):
+  - PyTorch, JAX/Flax, TensorFlow 2.x
+  - Generative AI: Diffusion Models (DDPM, DDIM, Stable Diffusion variants),
+    Flow Matching, VAEs, GANs
+  - LLMs: GPT architecture, RLHF, Constitutional AI, scaling laws
+  - Optimization: Adam, Lion, Sophia, gradient checkpointing, mixed precision
+  - Mathematics: Probability theory, information theory, convex optimization,
+    Bayesian inference
+
+AI/ML Engineering (Strong):
+  - Python (Expert), MLflow, Weights & Biases, SLURM (HPC clusters)
+  - Distributed Training: DDP, FSDP, DeepSpeed ZeRO, Megatron-LM
+  - Model serving: FastAPI + Triton, vLLM
+  - CUDA basics, basic kernel optimization (familiar, not expert-level)
+
+Full Stack (Growing — Intermediate):
+  - Backend: FastAPI, Flask, PostgreSQL, Docker, basic Kubernetes
+  - Frontend: React.js (self-taught over past 18 months), TypeScript basics
+  - Built 2 production-adjacent demo tools with React + FastAPI
+
+Cloud:
+  - AWS (SageMaker, EC2 P4d/G5 instances, S3), GCP (TPUs, Vertex AI)
+  - Research compute: NERSC Perlmutter, MIT SuperCloud
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+RESEARCH SCIENTIST → APPLIED AI ENGINEER
+MIT-IBM Watson AI Lab — Cambridge, MA                       Sep 2019 – Present
+-------------------------------------------------------------------------
+• Led research on efficient transformer architectures (sparse attention, linear
+  attention), resulting in 3 NeurIPS/ICML papers and a patent.
+• Built and trained a 7B-parameter language model from scratch on 2T tokens
+  using FSDP across 256 A100 GPUs.
+• Transitioned to applied engineering role (2023): built production FastAPI
+  serving layer for MIT AI Lab's research demos, serving 5K+ researchers.
+• Developed React + FastAPI full-stack interface for interactive language model
+  evaluation tool used by 3 external research partners.
+• Co-designed a generative AI API platform (Python backend) adopted by 8 MIT
+  spinout companies.
+
+POSTDOCTORAL RESEARCHER
+Carnegie Mellon University — Pittsburgh, PA                 Jun 2017 – Aug 2019
+-------------------------------------------------------------------------
+• Research focus: Multi-modal learning, vision-language models.
+• Developed multi-modal dataset (10M image-text pairs) used by 50+ research
+  groups globally.
+• Built Python tooling and REST APIs for dataset access infrastructure.
+
+PHD RESEARCH INTERN
+Google Brain — Mountain View, CA                            Jun 2015 – Aug 2015
+-------------------------------------------------------------------------
+• Contributed experiments to what became the "Attention Is All You Need" paper
+  (Vaswani et al., 2017) — acknowledged in paper credits.
+
+================================================================================
+EDUCATION
+================================================================================
+
+Ph.D. Computer Science (Machine Learning)
+Massachusetts Institute of Technology — Cambridge, MA                       2017
+Advisor: Prof. Tommi Jaakkola | Thesis: "Energy-Based Models for Structured
+Prediction" | GPA: 4.0/4.0
+
+B.S. Computer Science & Mathematics (Double Major)
+University of Michigan — Ann Arbor, MI                                      2012
+Summa Cum Laude | GPA: 3.97/4.0
+
+================================================================================
+SELECTED PUBLICATIONS (14 total, 2,100+ citations)
+================================================================================
+
+• Whitfield, J. et al. "Sparse Transformers for Efficient Long-Sequence
+  Modeling," NeurIPS 2022. (Cited 340+ times)
+• Whitfield, J. et al. "Flow Matching Generative Models: Theory and Practice,"
+  ICML 2021. (Cited 520+ times)
+• Whitfield, J. et al. "Scaling Laws for Energy-Based Models," ICLR 2020.
+
+================================================================================
+PATENTS
+================================================================================
+
+• US Patent 11,847,201: "Efficient Sparse Attention Mechanism for Transformer
+  Models" — USPTO 2023.
+
+================================================================================
+CERTIFICATIONS & AWARDS
+================================================================================
+
+• NSF Graduate Research Fellowship (2013)
+• MIT Presidential Fellowship (2012)
+• NeurIPS Outstanding Paper Award (2022)
+
+================================================================================

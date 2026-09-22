@@ -1,0 +1,117 @@
+================================================================================
+                        KEVIN ODUYA
+================================================================================
+Email: kevin.oduya.nlp@gmail.com | Phone: +1 (408) 523-7714
+LinkedIn: linkedin.com/in/kevin-oduya-nlp | GitHub: github.com/koduya-nlp
+Location: San Jose, CA 95110
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+NLP Research Engineer with 5 years of experience specializing in large language
+models, conversational AI, and information extraction. Strong Python developer
+with production experience deploying NLP services via FastAPI and gRPC. Built
+and deployed full-stack internal tools (React + FastAPI) for annotation and
+model evaluation workflows. Comfortable in the full model-development lifecycle:
+data collection, fine-tuning, evaluation, and production serving.
+
+================================================================================
+SKILLS
+================================================================================
+
+NLP & LLM (Expert):
+  - HuggingFace Transformers (BERT, GPT-2, T5, LLaMA, Mistral, Phi-3)
+  - Fine-tuning: LoRA, QLoRA, full fine-tuning, instruction tuning
+  - RLHF, DPO, PPO for alignment
+  - RAG: LangChain, LlamaIndex, Haystack; vector DBs (Weaviate, Pinecone)
+  - Tasks: NER, RE, summarization, QA, dialogue, intent classification
+  - Evaluation: BLEU, ROUGE, BERTScore, human eval frameworks
+
+ML Infrastructure (Proficient):
+  - PyTorch, DeepSpeed, FSDP, Accelerate (distributed training)
+  - vLLM, TGI (Text Generation Inference) for LLM serving
+  - Triton Inference Server, ONNX
+  - MLflow, Weights & Biases
+
+Backend (Proficient):
+  - Python (Expert), FastAPI, gRPC, Celery + Redis
+  - PostgreSQL, MongoDB, Elasticsearch
+  - Docker, Kubernetes, AWS (EKS, SageMaker, S3), GCP (Vertex AI)
+
+Frontend (Intermediate):
+  - React.js, TypeScript, basic hooks and state management
+  - Enough to build internal admin/annotation tools (not consumer-grade UIs)
+  - Streamlit (quick NLP demos), Label Studio integration
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+NLP / LLM ENGINEER — SENIOR
+Adobe — San Jose, CA                                        Feb 2021 – Present
+-------------------------------------------------------------------------
+• Fine-tuned LLaMA-2-13B and Mistral-7B on Adobe's creative writing corpus
+  using QLoRA; deployed via vLLM + Kubernetes, serving Adobe Express AI tools.
+• Built a RAG pipeline (LlamaIndex + Weaviate) for Adobe Help Center chat;
+  reduced support escalations by 34%.
+• Led NLP data annotation platform — full-stack tool built with React + FastAPI
+  used by 50 internal annotators for LLM preference data collection.
+• Implemented LLM output evaluation framework (automated + human-eval pipeline)
+  for quarterly model quality reviews.
+• Mentored 2 junior NLP engineers; conducted LLM reading group weekly.
+
+NLP ENGINEER
+Salesforce (Einstein AI) — San Francisco, CA                Jul 2018 – Jan 2021
+-------------------------------------------------------------------------
+• Built intent classification and entity extraction pipelines for Salesforce
+  Einstein Bots (now Agentforce) serving enterprise CRM customers.
+• Designed multilingual NLU pipeline supporting 12 languages using mBERT.
+• Created FastAPI microservices for NLP capabilities integrated into the
+  Salesforce platform REST API layer.
+• Built basic React admin interface for bot configuration (limited scope).
+
+ML RESEARCH INTERN
+Allen Institute for AI (AI2) — Seattle, WA                  Jun 2017 – Aug 2017
+-------------------------------------------------------------------------
+• Contributed to SpanBERT experiments for coreference resolution.
+• Wrote preprocessing scripts for OntoNotes 5.0 dataset.
+
+================================================================================
+EDUCATION
+================================================================================
+
+M.S. Computer Science (NLP Focus)
+University of Southern California — Los Angeles, CA                         2018
+Advisor: Prof. Xiang Ren | GPA: 3.85/4.0
+Thesis: "Zero-Shot Relation Extraction with Textual Entailment"
+
+B.S. Computer Science
+University of Lagos — Lagos, Nigeria                                        2016
+First Class Honours
+
+================================================================================
+PROJECTS
+================================================================================
+
+• OpenRAG — LlamaIndex-based open-source RAG framework, 1,500+ GitHub stars.
+• NLP Benchmark Dashboard — React + FastAPI app for comparing LLM performance
+  across 15 NLP tasks; used by 3 internal research teams at Adobe.
+• LLM Cookbook — HuggingFace Spaces collection of 20 NLP fine-tuning demos.
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• AWS Certified Machine Learning – Specialty (2022)
+• DeepLearning.AI LLMOps Specialization (2023)
+
+================================================================================
+PUBLICATIONS
+================================================================================
+
+• Oduya, K. et al. "Efficient Domain Adaptation of LLMs for Enterprise NLP,"
+  EMNLP Industry Track 2022.
+• Oduya, K. "Building Production RAG Systems," Towards Data Science 2023
+  (30K reads).
+
+================================================================================

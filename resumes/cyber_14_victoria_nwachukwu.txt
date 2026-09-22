@@ -1,0 +1,115 @@
+================================================================================
+                    VICTORIA NWACHUKWU
+================================================================================
+Email: victoria.nwachukwu@gmail.com | Phone: +1 (240) 774-6612
+LinkedIn: linkedin.com/in/victoria-nwachukwu-ciso | GitHub: github.com/vnwachukwu
+Location: Washington, DC 20001
+================================================================================
+
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Security Architect and vCISO with 12 years of experience designing enterprise
+security programs, cloud security architectures, and regulatory compliance
+frameworks. Trusted advisor to Fortune 500 CISOs and board-level executives.
+Deep expertise in zero-trust architecture, identity and access management (IAM),
+and security-by-design for cloud-native systems. Experienced in FedRAMP, SOC 2,
+PCI-DSS, HIPAA, and ISO 27001 audits and certifications. CISSP, CISM, and
+SABSA-certified. Exceptional communicator bridging technical and business domains.
+
+================================================================================
+SKILLS
+================================================================================
+
+Security Architecture:
+  - Zero-Trust Architecture (Gartner framework, NIST 800-207, CISA guidance)
+  - IAM: Okta, Ping Identity, ForgeRock, CyberArk PAM, BeyondTrust
+  - Network Segmentation: Micro-segmentation, Software-Defined Perimeter (SDP)
+  - SASE: Zscaler, Palo Alto Prisma Access, Cloudflare One
+  - Cryptography: PKI design, TLS hardening, secrets management strategy
+  - Threat Modeling: STRIDE, PASTA, Attack Tree Analysis, MITRE ATT&CK
+
+Cloud Security Architecture:
+  - AWS (Well-Architected Framework Security Pillar, Landing Zone, Control Tower)
+  - Azure (Security Benchmark, Defender for Cloud, Sentinel architecture)
+  - GCP (Security Command Center, Assured Workloads)
+  - Multi-cloud security posture management (CSPM): Wiz, Prisma Cloud
+
+Governance, Risk & Compliance (GRC):
+  - Frameworks: NIST CSF, NIST 800-53, ISO 27001/27017/27018, SOC 2, PCI-DSS
+  - FedRAMP (Moderate and High authorization experience), CMMC 2.0
+  - HIPAA/HITECH, GDPR, CCPA
+  - GRC Platforms: ServiceNow GRC, Archer, OneTrust
+
+Security Program Management:
+  - Security roadmap development, budget planning ($2M–$50M programs)
+  - Board and C-suite presentation of risk posture and mitigation strategies
+  - Vendor risk management, third-party assessment programs
+  - Security awareness training program design
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+SECURITY ARCHITECT / vCISO
+Coalfire — Washington, DC                                   Apr 2018 – Present
+-------------------------------------------------------------------------
+• Serve as vCISO for 6 concurrent enterprise clients (healthcare, government,
+  fintech); responsible for their overall security strategy and board reporting.
+• Led FedRAMP High Authorization for a major cloud platform (18-month program);
+  achieved ATO on schedule, first in client's category.
+• Designed zero-trust architecture for a 25,000-employee financial institution
+  migrating from perimeter-based security; reduced attack surface by 60%.
+• Architected cloud security landing zones on AWS and Azure for 4 client
+  environments, implementing CSPM, CASB, and WAF layers.
+• Managed team of 8 security consultants; developed training curriculum for
+  junior architects.
+• Presented quarterly risk posture reports to Fortune 100 boards.
+
+SENIOR SECURITY ARCHITECT
+Accenture Federal Services — Arlington, VA                  Jun 2013 – Mar 2018
+-------------------------------------------------------------------------
+• Designed security architectures for 3 major federal agencies (DoD, HHS, DHS).
+• Led SOC 2 Type II readiness programs for 5 SaaS clients.
+• Developed enterprise PKI and certificate lifecycle management systems.
+• Created department-wide threat modeling practice, training 60+ developers.
+
+INFORMATION SECURITY ANALYST
+Freddie Mac — McLean, VA                                    Jul 2011 – May 2013
+-------------------------------------------------------------------------
+• Performed risk assessments and vulnerability management for mortgage banking
+  infrastructure.
+• Supported PCI-DSS compliance audits.
+
+================================================================================
+EDUCATION
+================================================================================
+
+M.S. Information Assurance
+George Washington University — Washington, DC                               2013
+GPA: 3.9/4.0
+
+B.S. Computer Science
+Howard University — Washington, DC                                          2011
+Cum Laude | GPA: 3.7/4.0
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• CISSP — ISC² (Active since 2014)
+• CISM — ISACA (Active since 2016)
+• SABSA Chartered Security Architect (SCF) (Active since 2018)
+• AWS Certified Security – Specialty (2021)
+• TOGAF 9.2 — The Open Group (2019)
+• CCSP — ISC² (Active since 2020)
+• CISA — ISACA (Active since 2017)
+
+================================================================================
+SPEAKING & PUBLICATIONS
+================================================================================
+
+• RSA Conference 2023: "Zero-Trust Implementation Pitfalls and Lessons Learned"
+• Black Hat USA 2022: "FedRAMP High in 18 Months: A Case Study"
+• Author: "Cloud Security Architecture Handbook" (O'Reilly, 2022, 280 pages)
+
+================================================================================
