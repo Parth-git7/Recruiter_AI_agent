@@ -3,127 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candidate Matchmaker</title>
-  <meta name="description" content="Find the candidates that best match your job description using Microsoft AI Foundry.">
+  <title>HiringBazzar — AI Candidate Matchmaker</title>
+  <meta name="description" content="AI-powered recruitment assistant. Match job descriptions to top candidates using Microsoft AI Foundry.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-container">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="header-badge-row">
-        <div class="agent-status-badge">
-          <span class="status-indicator-dot"></span>
-          <span>Foundry Agent Online</span>
-        </div>
-        <span class="kb-tag">Knowledge: candidate-resumes</span>
+
+  <div class="page-background">
+    <div class="dynamic-halo"></div>
+    <div class="dynamic-halo-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-badge reveal-up">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Instant AI Matching</span>
       </div>
-      <h1 class="app-title">Candidate Matchmaker</h1>
-      <p class="app-subtitle">Find the candidates that best match your job description.</p>
+      <h1 class="hero-title reveal-up" style="transition-delay: 0.1s;">Intelligently match candidates<br>with AI Foundry</h1>
+      <p class="hero-subtitle reveal-up" style="transition-delay: 0.2s;">Upload your job description and let our serverless AI agents orchestrate the perfect match against your candidate knowledge base.</p>
+      
+      <div class="hero-actions reveal-up" style="transition-delay: 0.3s;">
+        <button class="btn btn-primary" onclick="document.getElementById('job-description').scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => document.getElementById('job-description').focus({preventScroll: true}), 500);">Get started</button>
+      </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <form id="match-form" class="match-form">
-        <div class="form-header">
-          <div class="form-label-group">
-            <label for="job-description" class="form-label">Job Description</label>
-            <span id="char-count" class="char-count">0 characters</span>
+    <!-- Dashboard UI (Expanded, No Sidebar) -->
+    <div class="dashboard-wrapper">
+      
+      <main class="main-content" style="width: 100%; max-width: 100%; border-left: none; padding: 40px;">
+        <!-- Top Branding Bar -->
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+          <div class="brand" style="display: flex; align-items: center; gap: 12px; margin-bottom: 0;">
+            <div class="logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <span style="font-family: var(--font-head); font-weight: 800; font-size: 26px; letter-spacing: -0.02em;">HiringBazzar</span>
           </div>
-          <div class="form-quick-actions">
-            <button type="button" id="clear-btn" class="ghost-btn" style="display: none;">Clear</button>
-            <button type="button" id="sample-btn" class="sample-btn">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: -1px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>Use sample JD
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <div class="status-indicator">
+              <span class="pulse"></span>
+              <span>Foundry Online</span>
+            </div>
+          </div>
+        </header>
+        
+        <!-- Dashboard Header -->
+        <header class="dash-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+          <div class="dash-header-left">
+            <h2 style="font-family: var(--font-head); font-size: 28px; font-weight: 700; margin-bottom: 4px;">AI Matchmaker Workflow</h2>
+            <p style="color: var(--text-muted); font-size: 14px;">Deploy AI agents instantly with zero hassle.</p>
+          </div>
+          <div class="dash-header-right">
+            <button class="btn btn-outline" id="sample-btn" style="border-radius: 20px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Use Sample JD
             </button>
+          </div>
+        </header>
+
+        <!-- Stats Row -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+            <div class="stat-content">
+              <p class="stat-label">Knowledge Base</p>
+              <h3 class="stat-value">Active</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+            <div class="stat-content">
+              <p class="stat-label">Candidates Scanned</p>
+              <h3 class="stat-value">1,248</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+            <div class="stat-content">
+              <p class="stat-label">Avg. Match Time</p>
+              <h3 class="stat-value">3.2s</h3>
+            </div>
           </div>
         </div>
 
-        <textarea
-          id="job-description"
-          name="jobDescription"
-          class="job-textarea"
-          rows="9"
-          placeholder="Paste the job description here (responsibilities, required skills, experience level)..."
-          required
-        ></textarea>
+        <!-- Input Area -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Job Description</h3>
+            <div class="panel-actions">
+              <span id="char-count">0 chars</span>
+              <button id="clear-btn" class="icon-btn" style="display:none;" title="Clear">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+          
+          <form id="match-form">
+            <textarea 
+              id="job-description" 
+              name="jobDescription" 
+              class="glass-input" 
+              rows="6" 
+              placeholder="Enter the job responsibilities, required skills, and experience level..."
+              required></textarea>
 
-        <div class="form-footer">
-          <span class="shortcut-tip">Tip: Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to find matches</span>
-          <button type="submit" id="submit-btn" class="primary-btn">
-            <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span class="btn-text">Find Candidates</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
+            <!-- Error Banner -->
+            <div id="error-message" class="alert alert-error" style="display:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span class="error-text"></span>
+            </div>
+
+            <div class="form-actions">
+              <p class="hint">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to submit</p>
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-glow">
+                <span class="btn-text">Execute Search</span>
+                <span class="btn-spinner" style="display:none;"></span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Results Area -->
+        <div id="results-section" style="display:none; margin-top: 24px;">
+          <div class="results-header">
+            <h3>Matched Candidates</h3>
+            <span class="badge" id="results-count">0</span>
+          </div>
+          <div id="candidates-list" class="candidates-grid">
+            <!-- Cards populated by JS -->
+          </div>
+        </div>
+
+      </main>
+    </div>
+    
+    <!-- Info Section (similar to bottom part of inspiration image) -->
+    <section class="info-section">
+      <div class="info-content reveal-up">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+          <span>Seamless Automation</span>
+        </div>
+        <h2 style="font-family: var(--font-head); font-weight: 800; font-style: italic; letter-spacing: -0.02em;">AI Recruitment on Autopilot.</h2>
+        <p>Stop manually screening resumes. Let our intelligent Microsoft AI Foundry agents analyze, rank, and shortlist your top candidates in seconds. Zero infrastructure headaches.</p>
+        
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Lightning-fast candidate matching & ranking.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Deep semantic resume analysis by AI.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated one-click email outreach.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Fully serverless, infinitely scalable.</li>
+        </ul>
+      </div>
+      <div class="info-visual reveal-up" style="transition-delay: 0.2s;">
+        <div class="mock-card">
+          <div class="mock-card-header">
+            <span>Candidate Analyzer</span>
+            <span class="mock-badge">Active</span>
+          </div>
+          <div class="mock-progress-wrap">
+            <div class="mock-progress-header">
+              <span class="pct">96%</span> <span class="lbl">Match Score</span>
+            </div>
+            <div class="mock-progress-bar"><div class="mock-progress-fill"></div></div>
+          </div>
+          <div class="mock-terminal">
+            <p class="typing">> Connecting to AI Foundry...</p>
+            <p class="typing" style="animation-delay: 1s">> Analyzing JD against candidate-resumes...</p>
+            <p class="typing" style="animation-delay: 2s">> Extracting skill vectors...</p>
+            <p class="typing success" style="animation-delay: 3s">> Match complete. 3 candidates found.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Email Modal -->
+  <div id="email-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Send Outreach Email</h3>
+        <button type="button" id="modal-close-btn" class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+      <form id="email-form" class="modal-body">
+        <div class="form-group">
+          <label>Recipient Email <span class="hint">(Editable for testing)</span></label>
+          <input type="email" id="email-to" class="glass-input" required>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="email-subject" class="glass-input" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="email-body" class="glass-input" rows="8" required></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="modal-cancel-btn" class="btn btn-outline">Cancel</button>
+          <button type="submit" id="modal-send-btn" class="btn btn-primary">
+            <span class="btn-text">Send Email</span>
+            <span class="btn-spinner" style="display:none;"></span>
           </button>
         </div>
       </form>
-
-      <!-- Error State -->
-      <div id="error-message" class="error-banner" role="alert" style="display: none;">
-        <span class="error-text"></span>
-      </div>
-
-      <!-- Results Section -->
-      <section id="results-section" class="results-section" style="display: none;">
-        <div class="results-header">
-          <div class="results-title-group">
-            <h2 class="results-title">Matching Candidates</h2>
-            <span id="results-count" class="results-count"></span>
-          </div>
-          <div class="results-subtext">Ranked by agent fit against resumes</div>
-        </div>
-
-        <div id="candidates-list" class="candidates-list">
-          <!-- Candidate cards inserted by app.js -->
-        </div>
-      </section>
-    </main>
-
-    <!-- Outreach Email Modal -->
-    <div id="email-modal" class="modal-overlay" style="display: none;">
-      <div class="modal-card">
-        <div class="modal-header">
-          <h3 class="modal-title">Send Outreach Email</h3>
-          <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close">&times;</button>
-        </div>
-        <form id="email-form" class="email-form">
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-              <label for="email-to" class="field-label">Recipient Email</label>
-              <span style="font-size: 11px; color: var(--text-muted);">Editable for testing</span>
-            </div>
-            <input type="email" id="email-to" class="text-input" placeholder="candidate@example.com or your test email" required />
-          </div>
-          <div class="form-group">
-            <label for="email-subject" class="field-label">Subject</label>
-            <input type="text" id="email-subject" class="text-input" required />
-          </div>
-          <div class="form-group">
-            <label for="email-body" class="field-label">Message</label>
-            <textarea id="email-body" class="text-input textarea-body" rows="14" required></textarea>
-          </div>
-          <div class="modal-actions">
-            <button type="button" id="modal-cancel-btn" class="secondary-btn">Cancel</button>
-            <button type="submit" id="modal-send-btn" class="primary-btn">
-              <span class="btn-text">Send Email</span>
-              <span class="btn-spinner" aria-hidden="true"></span>
-            </button>
-          </div>
-        </form>
-      </div>
     </div>
+  </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="toast-notification" style="display: none;">
-      <span id="toast-text"></span>
-    </div>
-
-    <!-- Minimal enterprise footer -->
-    <footer class="app-footer">
-      <p>Powered by Microsoft AI Foundry Agent Service &bull; Gmail API Outreach</p>
-    </footer>
+  <!-- Toast -->
+  <div id="toast" class="toast" style="display:none;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-text"></span>
   </div>
 
   <script src="app.js"></script>

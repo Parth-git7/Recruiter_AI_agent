@@ -179,28 +179,21 @@ Requirements:
         const initials = getInitials(candidate.name);
 
         const score = candidate.match_score !== null && candidate.match_score !== undefined
-          ? `<span class="candidate-score">${candidate.match_score}% Match</span>`
+          ? `<span class="cand-score">${candidate.match_score}%</span>`
           : "";
 
         const emailHtml = email
-          ? `<a href="mailto:${email}" class="candidate-email">${email}</a>`
-          : `<span class="candidate-email" style="color: #94a3b8; font-style: italic;">Email not listed</span>`;
-
-        const copyBtnHtml = email
-          ? `<button type="button" class="copy-email-btn" data-copy="${email}" title="Copy email address">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>`
-          : "";
+          ? `<a href="mailto:${email}" style="color:var(--text-muted);text-decoration:none;">${email}</a>`
+          : `<span style="color: #6b7280; font-style: italic;">Email not listed</span>`;
 
         const isSent = email && sentEmails.has(email.toLowerCase());
         const actionHtml = email
           ? isSent
-            ? `<span class="email-sent-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Email Sent
+            ? `<span class="email-sent">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Sent
               </span>`
-            : `<button type="button" class="email-btn" data-name="${name}" data-email="${email}" data-card-id="card-${idx}">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            : `<button type="button" class="btn btn-outline email-btn" data-name="${name}" data-email="${email}" data-card-id="card-${idx}">
                 Send Email
               </button>`
           : "";
@@ -213,42 +206,28 @@ Requirements:
           .map((l) => (l.startsWith("•") || l.startsWith("-") || l.startsWith("*") ? l.replace(/^[-*•]\s*/, "• ") : `• ${l}`));
 
         const summaryHtml = summaryLines.length > 0
-          ? summaryLines
-              .map((line) => `<div class="summary-bullet-item">${escapeHtml(line)}</div>`)
-              .join("")
-          : `<div class="summary-bullet-item">• Candidate profile exhibits strong alignment with requirements in the JD.</div>`;
+          ? summaryLines.map((line) => `<div>${escapeHtml(line)}</div>`).join("")
+          : `<div>• Candidate profile exhibits strong alignment with requirements in the JD.</div>`;
 
         return `
-          <div class="candidate-item-wrapper" id="card-${idx}">
-            <div class="candidate-card">
-              <div class="candidate-left-group">
-                <div class="candidate-avatar">${initials}</div>
-                <div class="candidate-info">
-                  <div class="candidate-name-row">
-                    <span class="candidate-name">${name}</span>
-                    <button type="button" class="summary-dropdown-btn" data-target="summary-${idx}" aria-expanded="false" title="Click to view 5-line summary">
-                      <span>Summary</span> <span class="summary-chevron">&#9662;</span>
-                    </button>
-                  </div>
-                  <div class="candidate-email-row">
-                    ${emailHtml}
-                    ${copyBtnHtml}
-                  </div>
-                </div>
+          <div class="candidate-card" id="card-${idx}">
+            <div class="cand-info">
+              <div class="cand-avatar">${initials}</div>
+              <div class="cand-details">
+                <h4>${name}
+                  <button type="button" class="summary-dropdown-btn icon-btn" data-target="summary-${idx}" style="display:inline-flex;margin-left:8px;padding:2px;" title="Toggle Summary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                </h4>
+                <p>${emailHtml}</p>
               </div>
-              <div class="candidate-side">
+              <div class="cand-actions" style="margin-left:auto; display:flex; gap:16px; align-items:center;">
                 ${score}
                 ${actionHtml}
               </div>
             </div>
-            <div class="candidate-summary-panel" id="summary-${idx}" style="display: none;">
-              <div class="summary-panel-header">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                Interview & Resume Summary
-              </div>
-              <div class="summary-bullets">
-                ${summaryHtml}
-              </div>
+            <div class="cand-summary" id="summary-${idx}">
+              ${summaryHtml}
             </div>
           </div>
         `;
@@ -262,10 +241,11 @@ Requirements:
         const panel = document.getElementById(targetId);
         if (!panel) return;
 
-        const isHidden = panel.style.display === "none";
-        panel.style.display = isHidden ? "block" : "none";
-        btn.classList.toggle("active", isHidden);
-        btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+        panel.classList.toggle("active");
+        const isActive = panel.classList.contains("active");
+        btn.classList.toggle("active", isActive);
+        btn.style.transform = isActive ? "rotate(180deg)" : "rotate(0deg)";
+        btn.setAttribute("aria-expanded", isActive ? "true" : "false");
       });
     });
 
@@ -417,14 +397,14 @@ companyname@gmail.com
 
       // Update candidate card in UI
       if (currentTargetCard) {
-        const sideDiv = currentTargetCard.querySelector(".candidate-side");
+        const sideDiv = currentTargetCard.querySelector(".cand-actions");
         const btn = currentTargetCard.querySelector(".email-btn");
         if (btn) {
           btn.remove();
         }
         const badge = document.createElement("span");
-        badge.className = "email-sent-badge";
-        badge.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 3px;"><polyline points="20 6 9 17 4 12"></polyline></svg> Email Sent`;
+        badge.className = "email-sent";
+        badge.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sent`;
         sideDiv.appendChild(badge);
       }
 
@@ -456,4 +436,25 @@ companyname@gmail.com
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
   }
+
+  // Scroll Animations Setup
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        // Optional: Stop observing once revealed
+        // observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-up').forEach(el => {
+    observer.observe(el);
+  });
 });
