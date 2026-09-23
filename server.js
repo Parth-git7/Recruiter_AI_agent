@@ -12,7 +12,7 @@ const pdfjsLib = require("pdfjs-dist/legacy/build/pdf.js");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Multer config — store in memory for PDF parsing
+// Multer configuration — store in memory for PDF parsing
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
