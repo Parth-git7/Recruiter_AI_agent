@@ -307,7 +307,7 @@ Sends an outreach email via Gmail API.
 - ✅ Azure AI Foundry supports **Managed Identity** for zero-secret authentication
 - ✅ `.env`, `credentials.json`, and `token.json` are git-ignored
 
----
+------------
 
 # How to Obtain Credentials
 
