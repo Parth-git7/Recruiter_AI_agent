@@ -37,6 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const sentEmails = new Set();
   let currentTargetCard = null;
 
+  // Upload Zone Elements
+  const uploadZone = document.getElementById("upload-zone");
+  const pdfUploadInput = document.getElementById("pdf-upload");
+  const uploadPreview = document.getElementById("upload-preview");
+  const uploadFilename = document.getElementById("upload-filename");
+  const uploadRemoveBtn = document.getElementById("upload-remove-btn");
+  const uploadProgress = document.getElementById("upload-progress");
+  const uploadProgressBar = uploadProgress ? uploadProgress.querySelector(".upload-progress-bar") : null;
+  const uploadZoneContent = uploadZone ? uploadZone.querySelector(".upload-zone-content") : null;
+
   // Sample job description for quick testing
   const sampleJD = `Role: Senior AI/ML Full Stack Engineer
 Location: San Francisco, CA (or Remote)
@@ -52,6 +62,164 @@ Requirements:
 - Strong proficiency in Python, PyTorch, TensorFlow, or Hugging Face.
 - Hands-on experience with cloud deployment, Docker, and MLOps.
 - Strong full-stack web development skills (APIs, UI, databases).`;
+
+  // ==================== PDF Upload Handling ====================
+  if (uploadZone && pdfUploadInput) {
+    // Click to browse
+    uploadZone.addEventListener("click", (e) => {
+      if (uploadZone.classList.contains("has-file")) return;
+      if (e.target.closest("#upload-remove-btn")) return;
+      pdfUploadInput.click();
+    });
+
+    // Drag and drop events
+    ["dragenter", "dragover"].forEach((evt) => {
+      uploadZone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!uploadZone.classList.contains("has-file")) {
+          uploadZone.classList.add("drag-over");
+        }
+      });
+    });
+
+    ["dragleave", "drop"].forEach((evt) => {
+      uploadZone.addEventListener(evt, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadZone.classList.remove("drag-over");
+      });
+    });
+
+    uploadZone.addEventListener("drop", (e) => {
+      if (uploadZone.classList.contains("has-file")) return;
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        handlePdfFile(files[0]);
+      }
+    });
+
+    // File input change
+    pdfUploadInput.addEventListener("change", () => {
+      if (pdfUploadInput.files.length > 0) {
+        handlePdfFile(pdfUploadInput.files[0]);
+      }
+    });
+
+    // Remove file button
+    if (uploadRemoveBtn) {
+      uploadRemoveBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        resetUploadZone();
+      });
+    }
+  }
+
+  function resetUploadZone() {
+    if (pdfUploadInput) pdfUploadInput.value = "";
+    if (uploadZone) uploadZone.classList.remove("has-file");
+    if (uploadZoneContent) uploadZoneContent.style.display = "";
+    if (uploadPreview) uploadPreview.style.display = "none";
+    if (uploadProgress) uploadProgress.style.display = "none";
+    if (uploadProgressBar) uploadProgressBar.style.width = "0%";
+    // Remove any existing error messages
+    const existingError = uploadZone ? uploadZone.querySelector(".upload-error") : null;
+    if (existingError) existingError.remove();
+  }
+
+  async function handlePdfFile(file) {
+    // Validate file type
+    if (file.type !== "application/pdf") {
+      showUploadError("Please upload a PDF file.");
+      return;
+    }
+
+    // Validate file size (10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      showUploadError("File is too large. Maximum size is 10MB.");
+      return;
+    }
+
+    // Clear previous errors
+    const existingError = uploadZone ? uploadZone.querySelector(".upload-error") : null;
+    if (existingError) existingError.remove();
+
+    // Show progress
+    if (uploadZoneContent) uploadZoneContent.style.display = "none";
+    if (uploadProgress) {
+      uploadProgress.style.display = "block";
+      if (uploadProgressBar) uploadProgressBar.style.width = "30%";
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("pdfFile", file);
+
+      // Animate progress
+      if (uploadProgressBar) uploadProgressBar.style.width = "60%";
+
+      const response = await fetch("/api/parse-pdf", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (uploadProgressBar) uploadProgressBar.style.width = "90%";
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to parse PDF.");
+      }
+
+      // Success — populate textarea
+      if (uploadProgressBar) uploadProgressBar.style.width = "100%";
+
+      setTimeout(() => {
+        // Show file preview
+        if (uploadProgress) uploadProgress.style.display = "none";
+        if (uploadPreview) {
+          uploadPreview.style.display = "flex";
+          if (uploadFilename) uploadFilename.textContent = file.name;
+        }
+        if (uploadZone) uploadZone.classList.add("has-file");
+
+        // Fill the textarea with extracted text
+        jobDescriptionInput.value = data.text;
+        updateTextareaState();
+
+        // Scroll textarea into view
+        jobDescriptionInput.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        showToast(`PDF parsed — ${data.text.length.toLocaleString()} characters extracted from ${data.pages} page${data.pages === 1 ? "" : "s"}`);
+      }, 300);
+
+    } catch (err) {
+      console.error("PDF upload error:", err);
+      resetUploadZone();
+      showUploadError(err.message || "Failed to parse the PDF file.");
+    }
+  }
+
+  function showUploadError(msg) {
+    // Remove any existing error
+    const existingError = uploadZone ? uploadZone.querySelector(".upload-error") : null;
+    if (existingError) existingError.remove();
+
+    if (uploadZone) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "upload-error";
+      errorDiv.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <span>${msg}</span>
+      `;
+      uploadZone.appendChild(errorDiv);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        if (errorDiv.parentNode) errorDiv.remove();
+      }, 5000);
+    }
+  }
 
   // Textarea input handlers for character count & clear button
   function updateTextareaState() {
